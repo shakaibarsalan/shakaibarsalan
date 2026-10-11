@@ -1,87 +1,59 @@
-<h1 align="center">Shakaib Arsalan</h1>
+<h1 align="center">Muhammad Shakaib Arsalan</h1>
 
 <p align="center">
-  <b>I ship systems that stay up.</b><br>
-  Software engineer · Lahore, Pakistan
+  <b>AI engineer who ships the whole product.</b><br>
+  Voice AI agents · RAG and LLM apps · AI automation · the full-stack SaaS around them
 </p>
 
 <p align="center">
-  <a href="https://shakaib.vercel.app/"><img src="https://img.shields.io/badge/portfolio-shakaib.vercel.app-0f766e?style=flat-square&labelColor=0b1220" alt="Portfolio"></a>
-  <a href="https://www.linkedin.com/in/shakaib-arsalan/"><img src="https://img.shields.io/badge/linkedin-shakaib--arsalan-0b1220?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn"></a>
+  <a href="https://shakaib.vercel.app"><img src="https://img.shields.io/badge/portfolio-shakaib.vercel.app-0f766e?style=flat-square&labelColor=0b1220" alt="Portfolio"></a>
+  <a href="https://www.linkedin.com/in/shakaib-arsalan"><img src="https://img.shields.io/badge/linkedin-shakaib--arsalan-0b1220?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn"></a>
   <a href="mailto:shakaibarsalan6553@gmail.com"><img src="https://img.shields.io/badge/email-shakaibarsalan6553-0b1220?style=flat-square&logo=gmail&logoColor=white" alt="Email"></a>
 </p>
 
-<p align="center">
-  <img src="https://img.shields.io/badge/open%20to-Software%20Engineer%20%C2%B7%20Full--Stack%20roles-16a34a?style=flat-square&labelColor=0b1220" alt="Open to roles">
-</p>
+I build the AI part and everything around it that makes it a product people pay for: auth, billing, multi-tenancy, deployment, and what happens on its worst day. I'm based in Lahore, Pakistan.
+
+**Currently:** Full-Stack & Cloud Engineer at Xaibridge. I'm open to AI Engineer or Full-Stack roles in Lahore, Islamabad or remote, and to freelance work.
 
 ---
 
-### Running in production
+### Live work
 
-Not demos. Every one of these has users, a URL, and something that breaks at 3am if I got it wrong.
+**[Sandstorms AI](https://sandstorms.ai)**: voice agents that answer and place phone calls. They stream speech-to-text → LLM → text-to-speech with barge-in and voice cloning, and handle calendar booking and billing.
 
-| | What it is | The hard part | Stack |
-|:--|:--|:--|:--|
-| 🟢 **[Attendify](https://attendify.pro/)** | Attendance that can't be faked | ArcFace embeddings over pgvector HNSW, liveness detection, rotating QR, GPS geofencing. 50+ endpoints, 7 containers. | `TypeScript` `React` `FastAPI` `pgvector` `Docker` |
-| 🟢 **[Invento](https://inventobase.com/)** | Multi-tenant inventory SaaS | Tenant-scoped isolation where one leaked query is a breach. 6 roles × 18 protected sections, 25 models across 11 Django apps. | `Django` `PostgreSQL` `Supabase` `Vercel` |
-| 🟢 **[Sandstorms AI](https://sandstorms.ai/)** | Voice agents that answer the phone | STT → LLM → TTS with voice cloning, fast enough that the caller doesn't hear the seams. | `Python` `STT/TTS` `LLM` |
-| 🟢 **[Govava](https://www.govava.com/)** | RAG over millions of listings | Retrieval and re-ranking where the index is too big to brute force. | `AWS Bedrock` `Python` `RAG` |
-| 🟢 **[Vanta LMS](https://lms-frontend-one-jet.vercel.app/)** | Academic workflow platform | Generated quizzes, automated grading, analytics teachers actually read. | `Django` `FastAPI` `PostgreSQL` |
+**[Attendify](https://attendify.pro)**: attendance that can't be faked. It checks the face and reads a fingerprint contactlessly from an ordinary phone camera, then adds liveness checks, rotating QR codes and GPS geofencing. It started as my final-year project and kept running after the grade was in.
 
-> **Attendify** started as a final year project and kept running after the grade was in. That's the part I care about.
+**[Invento](https://inventobase.com)**: multi-tenant inventory SaaS, built in Django. Each tenant's data is isolated, with six roles across 18 protected sections.
 
----
+**[Govava](https://govava.com)**: RAG product search on AWS Bedrock over tens of millions of scraped and cleaned product records.
 
-### How I work
+### Open source
 
-```
-schema ──▶ API ──▶ deploy ──▶ the part nobody demos
-                                  │
-                   ┌──────────────┼──────────────┐
-                   ▼              ▼              ▼
-              who can see    what happens    what it costs
-               which row      when it's      to run this
-                             slow at 3am     next month
-```
-
-Most of what I build is multi-tenant or biometric, which means the interesting
-problems aren't features. They're isolation, latency budgets, and what the
-system does on its worst day.
-
----
-
-### Tools
-
-**Languages** &nbsp; Python · TypeScript · JavaScript · Java · SQL · C++
-
-**Backend** &nbsp; Django · FastAPI · Express · REST · JWT/RBAC
-
-**Frontend** &nbsp; React · Hotwire/Turbo · Streamlit
-
-**Data** &nbsp; PostgreSQL · pgvector · Supabase
-
-**Infra** &nbsp; AWS · Docker · Kubernetes · Vercel · GitHub Actions
-
----
+**[Ferry](https://github.com/ahkamboh/ferry)**: copy or move a chat between Claude Code accounts with its context intact, all on your machine. I built the Windows port.
 
 ### Also on here
 
-Coursework I haven't hidden, because the C++ from first year is part of the line
-that leads to the pgvector work — plus **[audio-transcription-tool](https://github.com/shakaibarsalan/audio-transcription-tool)**,
-local Whisper transcription with NLP analysis, built for CS438 and still getting
-fixes whenever someone finds a rough edge.
+- **[audio-transcription-tool](https://github.com/shakaibarsalan/audio-transcription-tool)**: local Whisper transcription with an NLP quality check for creators
+- **[UAVDT-Dataset-Training](https://github.com/shakaibarsalan/UAVDT-Dataset-Training)**: Faster R-CNN vehicle detection on drone footage
+- **[Urdu-Text-Generation](https://github.com/shakaibarsalan/Urdu-Text-Generation)**: character- and word-level Urdu language models, LSTM vs GRU vs RNN
+- **[Elevvo_ML-Internship](https://github.com/shakaibarsalan/Elevvo_ML-Internship)**: regression, clustering, imbalanced classification and a recommender
 
----
+### Stack
+
+**AI**: LLMs (Llama on Groq, Gemini, AWS Bedrock) · RAG · pgvector · Whisper · Deepgram · ElevenLabs · n8n · PyTorch · scikit-learn<br>
+**Backend**: Python · FastAPI · Django · Express · PostgreSQL · Redis · Twilio / Asterisk<br>
+**Frontend**: TypeScript · React · Streamlit<br>
+**Cloud**: AWS · Docker · Kubernetes · Vercel · GitHub Actions
 
 ### Background
 
-**BS Computer Science** — University of Management & Technology<br>
-CGPA **3.73** / 4.00 · Rector's Award ×2 (SGPA 4.00)<br>
-Huawei HCCDA-AI Cloud Advanced · TensorFlow Fundamentals
+BS Computer Science, University of Management & Technology, Lahore · CGPA 3.73 / 4.00 · Rector's Award ×2
 
 <br>
 
 <p align="center">
-  <a href="https://github.com/shakaibarsalan?tab=repositories"><b>All repositories →</b></a>
+  <a href="https://shakaib.vercel.app">Portfolio</a> &nbsp;·&nbsp;
+  <a href="https://www.linkedin.com/in/shakaib-arsalan">LinkedIn</a> &nbsp;·&nbsp;
+  <a href="mailto:shakaibarsalan6553@gmail.com">shakaibarsalan6553@gmail.com</a> &nbsp;·&nbsp;
+  <a href="https://github.com/shakaibarsalan?tab=repositories">All repositories</a>
 </p>
