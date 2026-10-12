@@ -15,7 +15,7 @@ I build the AI part and the product around it: auth, billing, multi-tenancy and 
 
 ### Featured: Attendify
 
-<img align="right" width="230" src="assets/featured/attendify.webp" alt="Hand-drawn animation: a phone is sketched, fingerprint ridges appear on its screen, then face match, liveness check, rotating QR code and GPS geofence are ticked off.">
+<img align="right" width="270" src="assets/featured/attendify.webp" alt="Hand-drawn animation: a phone is sketched, fingerprint ridges appear on its screen, then face match, liveness check, rotating QR code and GPS geofence are ticked off.">
 
 **Attendance that can't be faked.** A phone camera reads the student's fingerprint and face, so there's no scanner to buy. A liveness check, a rotating QR code and a GPS fence stop proxy attendance. I built it alone, and it's live.
 
