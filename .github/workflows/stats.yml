@@ -1,0 +1,58 @@
+name: profile stats
+
+on:
+  schedule:
+    - cron: "17 2 * * *" # every day, 07:17 in Lahore
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ["scripts/**", ".github/workflows/stats.yml"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: stats
+  cancel-in-progress: true
+
+jobs:
+  stats:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Draw the stats card
+        working-directory: scripts
+        env:
+          # Add a STATS_TOKEN secret (a classic PAT with read:user) to count private contributions too.
+          GITHUB_TOKEN: ${{ secrets.STATS_TOKEN || github.token }}
+          STATS_LOGIN: ${{ github.repository_owner }}
+          STATS_OUT: ${{ runner.temp }}/stats
+        run: |
+          npm ci --no-audit --no-fund
+          node stats.mjs
+
+      # The card lives on its own branch so the daily update never adds commits to main.
+      - name: Publish to the stats branch
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          OUT="${{ runner.temp }}/stats"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git fetch -q origin stats; then
+            git switch -q -c stats FETCH_HEAD
+          else
+            git switch -q --orphan stats
+            git rm -rq --cached . || true
+          fi
+          find . -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
+          cp "$OUT"/* .
+          git add -A
+          git diff --cached --quiet && { echo "no change"; exit 0; }
+          git commit -q -m "stats $(date -u +%F)"
+          git push -q origin stats
