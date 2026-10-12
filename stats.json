@@ -1,0 +1,29 @@
+{
+  "contributions": 4233,
+  "current": 33,
+  "longest": 33,
+  "repos": 11,
+  "langs": [
+    {
+      "name": "TypeScript",
+      "pct": 58.8866238706839
+    },
+    {
+      "name": "Python",
+      "pct": 23.217624485346956
+    },
+    {
+      "name": "JavaScript",
+      "pct": 10.396942654133328
+    },
+    {
+      "name": "CSS",
+      "pct": 5.631374717788199
+    },
+    {
+      "name": "Other",
+      "pct": 1.8674342720476211
+    }
+  ],
+  "updated": "2026-10-12"
+}
