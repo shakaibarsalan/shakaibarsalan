@@ -21,7 +21,7 @@ I build the AI part and everything around it that makes it a product people pay 
 
 **[Sandstorms AI](https://sandstorms.ai)**: voice agents that answer and place phone calls. They stream speech-to-text → LLM → text-to-speech with barge-in and voice cloning, and handle calendar booking and billing.
 
-**[Attendify](https://attendify.pro)**: attendance that can't be faked. It checks the face and reads a fingerprint contactlessly from an ordinary phone camera, then adds liveness checks, rotating QR codes and GPS geofencing. It started as my final-year project and kept running after the grade was in.
+**[Attendify](https://attendify.pro)** · [source](https://github.com/shakaibarsalan/attendify-pro): attendance that can't be faked. It checks the face and reads a fingerprint contactlessly from an ordinary phone camera, then adds liveness checks, rotating QR codes and GPS geofencing. It started as my final-year project and kept running after the grade was in.
 
 **[Invento](https://inventobase.com)**: multi-tenant inventory SaaS, built in Django. Each tenant's data is isolated, with six roles across 18 protected sections.
 
