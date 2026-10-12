@@ -1,47 +1,72 @@
-<h1 align="center">Muhammad Shakaib Arsalan</h1>
+<a href="https://shakaib.vercel.app">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/header-dark.svg">
+    <img src="assets/header-light.svg" width="100%" alt="Muhammad Shakaib Arsalan. AI engineer and full-stack developer. I build AI products end to end. Open to work in Lahore, Islamabad or remote.">
+  </picture>
+</a>
 
 <p align="center">
-  <b>AI engineer who ships the whole product.</b><br>
-  Voice AI agents · RAG and LLM apps · AI automation · the full-stack SaaS around them
+  <a href="https://shakaib.vercel.app"><img src="assets/buttons/portfolio.svg" height="40" alt="Portfolio"></a>
+  <a href="https://www.linkedin.com/in/shakaib-arsalan"><img src="assets/buttons/linkedin.svg" height="40" alt="LinkedIn"></a>
+  <a href="mailto:shakaibarsalan6553@gmail.com"><img src="assets/buttons/email.svg" height="40" alt="Email me"></a>
 </p>
 
-<p align="center">
-  <a href="https://shakaib.vercel.app"><img src="https://img.shields.io/badge/portfolio-shakaib.vercel.app-0f766e?style=flat-square&labelColor=0b1220" alt="Portfolio"></a>
-  <a href="https://www.linkedin.com/in/shakaib-arsalan"><img src="https://img.shields.io/badge/linkedin-shakaib--arsalan-0b1220?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn"></a>
-  <a href="mailto:shakaibarsalan6553@gmail.com"><img src="https://img.shields.io/badge/email-shakaibarsalan6553-0b1220?style=flat-square&logo=gmail&logoColor=white" alt="Email"></a>
-</p>
+I build the AI part and the product around it: auth, billing, multi-tenancy, deployment, and what happens on its worst day. Right now I'm a Full-Stack & Cloud Engineer at Xaibridge in Lahore. I'm open to AI engineer and full-stack roles in Lahore, Islamabad or remote, and to freelance projects.
 
-I build the AI part and everything around it that makes it a product people pay for: auth, billing, multi-tenancy, deployment, and what happens on its worst day. I'm based in Lahore, Pakistan.
+### Featured: Attendify
 
-**Currently:** Full-Stack & Cloud Engineer at Xaibridge. I'm open to AI Engineer or Full-Stack roles in Lahore, Islamabad or remote, and to freelance work.
+<img align="right" width="290" src="assets/featured/attendify.webp" alt="Hand-drawn animation: a phone is sketched, fingerprint ridges appear on its screen, then face match, liveness check, rotating QR code and GPS geofence are ticked off.">
 
----
+**Attendance that can't be faked.** A student holds a fingertip up to an ordinary phone camera. The app pulls the ridges out of that photo and matches them, so nobody has to buy a fingerprint scanner. The face is matched from the same camera.
 
-### Live work
+- a liveness check with random challenges, so a photo or a replayed video doesn't pass
+- a QR code on the classroom screen that changes every few seconds
+- a GPS geofence that checks the student is near the room
+- separate, isolated data for every institution
 
-**[Sandstorms AI](https://sandstorms.ai)**: voice agents that answer and place phone calls. They stream speech-to-text → LLM → text-to-speech with barge-in and voice cloning, and handle calendar booking and billing.
+I built it alone as my final-year project, and it kept running after the grade was in.
 
-**[Attendify](https://attendify.pro)** · [source](https://github.com/shakaibarsalan/attendify-pro): attendance that can't be faked. It checks the face and reads a fingerprint contactlessly from an ordinary phone camera, then adds liveness checks, rotating QR codes and GPS geofencing. It started as my final-year project and kept running after the grade was in.
+<a href="https://attendify.pro"><img src="assets/buttons/live.svg" height="38" alt="Live site"></a>
+<a href="https://github.com/shakaibarsalan/attendify-pro"><img src="assets/buttons/source.svg" height="38" alt="Source code"></a>
 
-**[Invento](https://inventobase.com)**: multi-tenant inventory SaaS, built in Django. Each tenant's data is isolated, with six roles across 18 protected sections.
+<sub>React · TypeScript · Node.js · Express · FastAPI · InsightFace · MediaPipe · OpenCV · PostgreSQL</sub>
 
-**[Govava](https://govava.com)**: RAG product search on AWS Bedrock over tens of millions of scraped and cleaned product records.
+<br clear="right">
 
 ### Open source
 
-**[NexaLM](https://github.com/shakaibarsalan/nexalm)** · [live demo](https://nexalm.vercel.app): a self-hosted, multi-model LLM and image-generation platform that runs on free Colab and Kaggle GPUs.
+<p>
+<a href="https://github.com/shakaibarsalan/nexalm"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/cards/nexalm-dark.svg"><img src="assets/cards/nexalm-light.svg" width="49%" alt="NexaLM: self-hosted multi-model LLM and image platform that runs on free Kaggle and Colab GPUs, with streaming chat and live metrics."></picture></a>
+<a href="https://github.com/shakaibarsalan/tryon"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/cards/tryon-dark.svg"><img src="assets/cards/tryon-light.svg" width="49%" alt="Try-On: AI virtual try-on. A Chrome extension side panel talks to a Cloudflare Worker API where the try-on model provider can be swapped."></picture></a>
+</p>
 
-**[Try-On](https://github.com/shakaibarsalan/tryon)** · [live demo](https://tryonlab.vercel.app): AI virtual try-on with a Chrome extension, a store widget and a Cloudflare Worker API with swappable model providers.
+<p>
+<a href="https://github.com/shakaibarsalan/linkedin-job-agent"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/cards/linkedin-job-agent-dark.svg"><img src="assets/cards/linkedin-job-agent-light.svg" width="49%" alt="LinkedIn Job Agent: scores job posts against your CV, drafts cover letters, then fact-checks every claim against the CV with plain code."></picture></a>
+<a href="https://github.com/shakaibarsalan/n8n-client-hunt"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/cards/n8n-client-hunt-dark.svg"><img src="assets/cards/n8n-client-hunt-light.svg" width="49%" alt="n8n Client Hunt: finds small businesses that trade but have no website, proves the gap with open map data, scores them and drafts a first message."></picture></a>
+</p>
 
-**[LinkedIn Job Agent](https://github.com/shakaibarsalan/linkedin-job-agent)**: scores job posts against my profile and drafts grounded cover letters, with a fact check and a human review queue.
+<p>
+<a href="https://github.com/shakaibarsalan/face-liveness-detection"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/cards/face-liveness-detection-dark.svg"><img src="assets/cards/face-liveness-detection-light.svg" width="49%" alt="Face Liveness: checks that the face on camera is a live person by asking for random blinks, turns and nods and verifying each from face landmarks."></picture></a>
+<a href="https://github.com/ahkamboh/ferry"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/cards/ferry-dark.svg"><img src="assets/cards/ferry-light.svg" width="49%" alt="Ferry: copy or move a chat between Claude Code accounts with its context intact. I built the Windows port."></picture></a>
+</p>
 
-**[n8n Client Hunt](https://github.com/shakaibarsalan/n8n-client-hunt)**: n8n + Postgres workflows that find and qualify local-business leads.
+Try the demos in your browser: [nexalm.vercel.app](https://nexalm.vercel.app) and [tryonlab.vercel.app](https://tryonlab.vercel.app).
 
-**[Face liveness detection](https://github.com/shakaibarsalan/face-liveness-detection)**: challenge-response liveness checks with MediaPipe, which block photo and video replay.
+### Built at work, still live
 
-**[Ferry](https://github.com/ahkamboh/ferry)**: copy or move a chat between Claude Code accounts with its context intact, all on your machine. I built the Windows port.
+<p>
+<a href="https://www.linkedin.com/in/shakaib-arsalan"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/cards/xaibridge-dark.svg"><img src="assets/cards/xaibridge-light.svg" width="49%" alt="Xaibridge, Full-Stack and Cloud Engineer, now: cut database reads 98%, moved about 450k emails a month to Amazon SES (projected 80%+ cheaper) and took the tests from zero to about 3,000."></picture></a>
+<a href="https://sandstorms.ai"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/cards/sandstorms-dark.svg"><img src="assets/cards/sandstorms-light.svg" width="49%" alt="Sandstorms AI: voice agents that answer and place real phone calls, with streaming speech-to-text, LLM and text-to-speech, barge-in and sub-second first audio."></picture></a>
+</p>
 
-### Also on here
+<p>
+<a href="https://govava.com"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/cards/govava-dark.svg"><img src="assets/cards/govava-light.svg" width="49%" alt="Govava: RAG product search on AWS Bedrock over tens of millions of scraped product records."></picture></a>
+<a href="https://inventobase.com"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/cards/invento-dark.svg"><img src="assets/cards/invento-light.svg" width="49%" alt="Invento: multi-tenant inventory SaaS that replaces spreadsheet stock tracking, with isolated tenant data, six roles and self-service onboarding."></picture></a>
+</p>
+
+<sub>Sandstorms AI and Govava were built at FourDevs.ai, and Invento at Hello Future Technologies. Their code belongs to those companies, so it isn't here.</sub>
+
+### Smaller projects
 
 - **[audio-transcription-tool](https://github.com/shakaibarsalan/audio-transcription-tool)**: local Whisper transcription with an NLP quality check for creators
 - **[UAVDT-Dataset-Training](https://github.com/shakaibarsalan/UAVDT-Dataset-Training)**: Faster R-CNN vehicle detection on drone footage
@@ -50,20 +75,17 @@ I build the AI part and everything around it that makes it a product people pay 
 
 ### Stack
 
-**AI**: LLMs (Llama on Groq, Gemini, AWS Bedrock) · RAG · pgvector · Whisper · Deepgram · ElevenLabs · n8n · PyTorch · scikit-learn<br>
-**Backend**: Python · FastAPI · Django · Express · PostgreSQL · Redis · Twilio / Asterisk<br>
-**Frontend**: TypeScript · React · Streamlit<br>
-**Cloud**: AWS · Cloudflare · Docker · Vercel · GitHub Actions
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/stack-dark.svg">
+  <img src="assets/stack-light.svg" width="100%" alt="AI and ML: LLMs, RAG, pgvector, AWS Bedrock, Gemini, Llama on Groq, Whisper, Deepgram, ElevenLabs, MediaPipe, OpenCV, InsightFace, PyTorch, scikit-learn, n8n. Backend: Python, FastAPI, Django, Node.js, Express, Fastify, PostgreSQL, MySQL, Redis, Socket.IO, Twilio, Asterisk. Frontend: TypeScript, React, Next.js, Vite, Tailwind CSS, Streamlit, Chrome extensions. Cloud and ops: AWS, Cloudflare Workers, Docker, Vercel, Supabase, GitHub Actions, nginx, Linux servers.">
+</picture>
 
-### Background
+### On GitHub lately
 
-BS Computer Science, University of Management & Technology, Lahore · CGPA 3.73 / 4.00 · Rector's Award ×2
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/shakaibarsalan/shakaibarsalan/stats/stats-dark.svg">
+  <img src="https://raw.githubusercontent.com/shakaibarsalan/shakaibarsalan/stats/stats-light.svg" width="100%" alt="My GitHub activity over the last 12 months: contributions, streaks, a contribution heatmap and top languages. Updated daily.">
+</picture>
 
-<br>
-
-<p align="center">
-  <a href="https://shakaib.vercel.app">Portfolio</a> &nbsp;·&nbsp;
-  <a href="https://www.linkedin.com/in/shakaib-arsalan">LinkedIn</a> &nbsp;·&nbsp;
-  <a href="mailto:shakaibarsalan6553@gmail.com">shakaibarsalan6553@gmail.com</a> &nbsp;·&nbsp;
-  <a href="https://github.com/shakaibarsalan?tab=repositories">All repositories</a>
-</p>
+<sub>BS Computer Science, University of Management & Technology, Lahore · CGPA 3.73 / 4.00 · Rector's Award ×2</sub><br>
+<sub>Every image on this page is drawn by code in this repo ([scripts](scripts)), and the stats card is redrawn every day by a GitHub Action.</sub>
