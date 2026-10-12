@@ -29,6 +29,16 @@ I build the AI part and everything around it that makes it a product people pay 
 
 ### Open source
 
+**[NexaLM](https://github.com/shakaibarsalan/nexalm)** · [live demo](https://nexalm.vercel.app): a self-hosted, multi-model LLM and image-generation platform that runs on free Colab and Kaggle GPUs.
+
+**[Try-On](https://github.com/shakaibarsalan/tryon)** · [live demo](https://tryonlab.vercel.app): AI virtual try-on with a Chrome extension, a store widget and a Cloudflare Worker API with swappable model providers.
+
+**[LinkedIn Job Agent](https://github.com/shakaibarsalan/linkedin-job-agent)**: scores job posts against my profile and drafts grounded cover letters, with a fact check and a human review queue.
+
+**[n8n Client Hunt](https://github.com/shakaibarsalan/n8n-client-hunt)**: n8n + Postgres workflows that find and qualify local-business leads.
+
+**[Face liveness detection](https://github.com/shakaibarsalan/face-liveness-detection)**: challenge-response liveness checks with MediaPipe, which block photo and video replay.
+
 **[Ferry](https://github.com/ahkamboh/ferry)**: copy or move a chat between Claude Code accounts with its context intact, all on your machine. I built the Windows port.
 
 ### Also on here
@@ -43,7 +53,7 @@ I build the AI part and everything around it that makes it a product people pay 
 **AI**: LLMs (Llama on Groq, Gemini, AWS Bedrock) · RAG · pgvector · Whisper · Deepgram · ElevenLabs · n8n · PyTorch · scikit-learn<br>
 **Backend**: Python · FastAPI · Django · Express · PostgreSQL · Redis · Twilio / Asterisk<br>
 **Frontend**: TypeScript · React · Streamlit<br>
-**Cloud**: AWS · Docker · Kubernetes · Vercel · GitHub Actions
+**Cloud**: AWS · Cloudflare · Docker · Vercel · GitHub Actions
 
 ### Background
 
