@@ -1,7 +1,6 @@
 // Builds every static image the profile README uses, in a dark and a light version.
 // Run: npm install && npm run assets   (writes into ../assets)
-import { fonts, themes, text, stops, measure, wrap, svg, write, icons } from "./lib.mjs";
-import { cards } from "./cards.mjs";
+import { fonts, themes, text, stops, measure, svg, write, icons } from "./lib.mjs";
 
 const f = (n) => +n.toFixed(3);
 
@@ -21,44 +20,41 @@ function typeWidths(st, begin, perChar) {
 }
 
 function header(t) {
-  const W = 1280, H = 400, X = 76;
+  const W = 1280, H = 380, C = W / 2;
   const defs = [];
   const body = [];
-
-  // fingerprint frame on the right
-  const fx = 972, fy = 54, fw = 236, fh = 292;
-  const cx = fx + fw / 2, cy = fy + fh / 2;
 
   defs.push(
     `<pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.1" fill="${t.dot}"/></pattern>`,
     `<radialGradient id="glow"><stop offset="0" stop-color="${t.accent}" stop-opacity="${t.glow}"/><stop offset="1" stop-color="${t.accent}" stop-opacity="0"/></radialGradient>`,
-    `<linearGradient id="trail" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${t.accent}" stop-opacity="0"/><stop offset="1" stop-color="${t.accent}" stop-opacity=".22"/></linearGradient>`,
     `<clipPath id="card"><rect width="${W}" height="${H}" rx="24"/></clipPath>`,
-    `<clipPath id="fp"><rect x="${fx}" y="${fy}" width="${fw}" height="${fh}" rx="20"/></clipPath>`,
   );
 
   body.push(`<rect width="${W}" height="${H}" fill="${t.bg}"/>`, `<rect width="${W}" height="${H}" fill="url(#dots)"/>`);
-  body.push(`<circle cx="${cx}" cy="${cy}" r="250" fill="url(#glow)"><animate attributeName="r" values="230;290;230" dur="9s" repeatCount="indefinite"/></circle>`);
+  // two soft glows in opposite corners, drifting slowly
+  body.push(`<circle cx="170" cy="30" r="310" fill="url(#glow)"><animate attributeName="cx" values="170;270;170" dur="14s" repeatCount="indefinite"/></circle>`);
+  body.push(`<circle cx="1110" cy="360" r="330" fill="url(#glow)"><animate attributeName="cx" values="1110;1000;1110" dur="17s" repeatCount="indefinite"/></circle>`);
 
   // kicker, typed
   const kStr = "AI ENGINEER  ·  FULL-STACK DEVELOPER";
-  const kY = 110;
-  const k = text(kStr, fonts.mono500, 17, X, kY, { ls: 2.6 });
+  const kY = 100;
+  const kx = C - measure(kStr, fonts.mono500, 17, 2.6) / 2;
+  const k = text(kStr, fonts.mono500, 17, kx, kY, { ls: 2.6 });
   const kt = typeWidths(stops(kStr, fonts.mono500, 17, 2.6), 0.2, 0.03);
-  defs.push(`<clipPath id="kclip"><rect x="${X}" y="${kY - 18}" width="${f(k.w + 3)}" height="26"><animate attributeName="width" calcMode="discrete" values="${kt.values}" keyTimes="${kt.keyTimes}" dur="${kt.dur}s" fill="freeze"/></rect></clipPath>`);
-  body.push(`${k.el(t.accent, `clip-path="url(#kclip)"`)}`);
+  defs.push(`<clipPath id="kclip"><rect x="${f(kx)}" y="${kY - 18}" width="${f(k.w + 3)}" height="26"><animate attributeName="width" calcMode="discrete" values="${kt.values}" keyTimes="${kt.keyTimes}" dur="${kt.dur}s" fill="freeze"/></rect></clipPath>`);
+  body.push(k.el(t.accent, `clip-path="url(#kclip)"`));
 
   // name and tagline rise in
-  const name = text("Muhammad Shakaib Arsalan", fonts.sans700, 60, X - 3, 184);
+  const name = text("Muhammad Shakaib Arsalan", fonts.sans700, 64, C, 176, { anchor: "middle" });
   body.push(`<g>${appear(0.45)}<g>${rise(0.45)}${name.el(t.text)}</g></g>`);
-  const tag1 = text("I build AI products ", fonts.sans600, 30, X, 234);
-  const tag2 = text("end to end.", fonts.sans600, 30, X + tag1.w, 234);
+  const w1 = measure("I build AI products ", fonts.sans600, 30), w2 = measure("end to end.", fonts.sans600, 30);
+  const tag1 = text("I build AI products ", fonts.sans600, 30, C - (w1 + w2) / 2, 228);
+  const tag2 = text("end to end.", fonts.sans600, 30, C - (w1 + w2) / 2 + w1, 228);
   body.push(`<g>${appear(0.75)}<g>${rise(0.75)}${tag1.el(t.muted)}${tag2.el(t.accent)}</g></g>`);
 
-  // rotating line: types a phrase, holds, erases, next phrase
-  const pY = 292;
-  const prompt = text("$", fonts.mono500, 20, X, pY);
-  const px = X + prompt.w + 12;
+  // rotating line: each phrase is centred with its own "$" prompt, typed, held, erased
+  const pY = 286, FS = 20, gap = 12;
+  const pw = measure("$", fonts.mono500, FS);
   const phrases = [
     "voice agents that pick up real phone calls",
     "RAG search over tens of millions of products",
@@ -66,72 +62,43 @@ function header(t) {
     "and the auth, billing and deploys around them",
   ];
   const lead = 1.3, slot = 4.6, T = lead + phrases.length * slot;
-  const cursorPts = [[0, 0]];
+  const cursorPts = [];
+  let cursor0 = 0;
   phrases.forEach((p, i) => {
-    const st = stops(p, fonts.mono400, 20);
+    const st = stops(p, fonts.mono400, FS);
+    const sx = C - (pw + gap + st.at(-1) + 14) / 2;
+    const base = pw + gap;
+    const full = base + st.at(-1) + 2;
     const t0 = lead + i * slot;
-    const pts = [[0, 0]];
-    st.forEach((w, j) => pts.push([t0 + j * 0.032, w + 2]));
-    const eraseAt = t0 + slot - 0.85;
-    const steps = 8;
-    for (let s = 1; s <= steps; s++) pts.push([eraseAt + s * 0.05, (st.at(-1) + 2) * (1 - s / steps)]);
+    const pts = [[0, 0], [t0, base]];
+    st.forEach((w, j) => pts.push([t0 + (j + 1) * 0.032, base + w + 2]));
+    const eraseAt = t0 + slot - 0.85, steps = 8;
+    for (let s = 1; s <= steps; s++) pts.push([eraseAt + s * 0.05, base + (full - base) * (1 - s / steps)]);
     pts.push([t0 + slot - 0.2, 0]);
-    cursorPts.push(...pts.slice(1));
+    if (i === 0) { cursorPts.push([0, sx + base + 2]); cursor0 = sx + full + 2; }
+    for (const [tt, r] of pts.slice(1)) cursorPts.push([tt, sx + Math.max(r, base) + 2]);
     const vals = pts.map((q) => f(q[1])).join(";");
     const kts = pts.map((q) => f(q[0] / T)).join(";");
-    const ph = text(p, fonts.mono400, 20, px, pY);
-    defs.push(`<clipPath id="ph${i}"><rect x="${px}" y="${pY - 22}" height="30" width="${i === 0 ? f(ph.w + 2) : 0}"><animate attributeName="width" calcMode="discrete" values="${vals}" keyTimes="${kts}" dur="${f(T)}s" repeatCount="indefinite"/></rect></clipPath>`);
-    body.push(`${ph.el(t.text, `clip-path="url(#ph${i})"`)}`);
+    defs.push(`<clipPath id="ph${i}"><rect x="${f(sx)}" y="${pY - 22}" height="30" width="${i === 0 ? f(full) : 0}"><animate attributeName="width" calcMode="discrete" values="${vals}" keyTimes="${kts}" dur="${f(T)}s" repeatCount="indefinite"/></rect></clipPath>`);
+    body.push(`<g clip-path="url(#ph${i})">${text("$", fonts.mono500, FS, sx, pY).el(t.accent)}${text(p, fonts.mono400, FS, sx + base, pY).el(t.text)}</g>`);
   });
-  body.push(`${prompt.el(t.accent)}`);
-  const cv = cursorPts.map((q) => f(px + q[1] + 2)).join(";");
+  const cv = cursorPts.map((q) => f(q[1])).join(";");
   const ck = cursorPts.map((q) => f(q[0] / T)).join(";");
-  body.push(`<rect y="${pY - 16}" width="11" height="21" fill="${t.accent}" x="${px + measure(phrases[0], fonts.mono400, 20) + 4}"><animate attributeName="x" calcMode="discrete" values="${cv}" keyTimes="${ck}" dur="${f(T)}s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;0" calcMode="discrete" dur="1.05s" repeatCount="indefinite"/></rect>`);
+  body.push(`<rect y="${pY - 16}" width="11" height="21" fill="${t.accent}" x="${f(cursor0)}"><animate attributeName="x" calcMode="discrete" values="${cv}" keyTimes="${ck}" dur="${f(T)}s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;0" calcMode="discrete" dur="1.05s" repeatCount="indefinite"/></rect>`);
 
-  // status row
-  const sY = 350;
+  // status row, centred
+  const sY = 340;
+  const openW = measure("Open to work", fonts.sans600, 20);
+  const whereS = "Lahore  ·  Islamabad  ·  remote", whereW = measure(whereS, fonts.mono400, 16);
+  const siteW = measure("shakaib.vercel.app", fonts.mono500, 16);
+  const sx = C - (26 + openW + 20 + whereW + 30 + siteW) / 2;
   body.push(`<g>${appear(1.1)}`);
-  body.push(`<circle cx="${X + 7}" cy="${sY - 7}" r="5.5" fill="${t.accent}"/><circle cx="${X + 7}" cy="${sY - 7}" r="5" fill="none" stroke="${t.accent}" stroke-width="2"><animate attributeName="r" values="5;15" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values=".8;0" dur="2s" repeatCount="indefinite"/></circle>`);
-  const open = text("Open to work", fonts.sans600, 20, X + 26, sY);
-  const where = text("Lahore  ·  Islamabad  ·  remote", fonts.mono400, 16, X + 26 + open.w + 20, sY);
-  const site = text("shakaib.vercel.app", fonts.mono500, 16, where.x + where.w + 30, sY);
-  body.push(`${open.el(t.text)}${where.el(t.dim)}`);
-  body.push(`<rect x="${where.x + where.w + 14}" y="${sY - 14}" width="1.5" height="17" fill="${t.faint}"/>${site.el(t.text)}</g>`);
-
-  // fingerprint: loop ridges that draw themselves, then a scan line and a "verified" chip
-  const ridges = [];
-  for (let r = 0; r < 16; r++) {
-    const base = 7 + r * 7.4;
-    const n = 40 + r * 3;
-    const a0 = Math.PI * 0.555, a1 = Math.PI * 2.445;
-    let d = "";
-    for (let i = 0; i <= n; i++) {
-      const a = a0 + ((a1 - a0) * i) / n;
-      const wob = 1 + 0.028 * (Math.sin(i * 0.42 + r * 1.7) + Math.sin(i * 0.17 + r * 0.6));
-      const x = cx + base * 0.84 * wob * Math.cos(a);
-      const y = cy - 16 + base * 1.16 * wob * Math.sin(a);
-      d += `${i ? "L" : "M"}${x.toFixed(1)} ${y.toFixed(1)}`;
-    }
-    const b = 0.55 + r * 0.085, dur = 0.55;
-    const col = r % 4 === 3 ? t.accent : t.ridge;
-    ridges.push(`<path d="${d}" stroke="${col}" pathLength="1" stroke-dasharray="1 1"><animate attributeName="stroke-dashoffset" values="1;1;0" keyTimes="0;${f(b / (b + dur))};1" dur="${f(b + dur)}s" fill="freeze"/></path>`);
-  }
-  body.push(`<g clip-path="url(#fp)" fill="none" stroke-width="2.3" stroke-linecap="round" opacity=".95">${ridges.join("")}</g>`);
-
-  // scan sweep, hidden below the frame between passes
-  const off = fh + 44;
-  body.push(`<g clip-path="url(#fp)"><g transform="translate(0 ${off})"><rect x="${fx}" y="${fy - 42}" width="${fw}" height="42" fill="url(#trail)"/><rect x="${fx}" y="${fy - 1.5}" width="${fw}" height="2.5" fill="${t.accent}"/><animateTransform attributeName="transform" type="translate" values="0 0;0 ${off};0 ${off}" keyTimes="0;.55;1" dur="3.2s" begin="2.2s" repeatCount="indefinite"/></g></g>`);
-
-  // corner brackets
-  const L = 26, R = 14, s = `stroke="${t.accent}" stroke-width="3" fill="none" stroke-linecap="round"`;
-  const x0 = fx, y0 = fy, x1 = fx + fw, y1 = fy + fh;
-  body.push(`<path ${s} d="M${x0} ${y0 + L}V${y0 + R}Q${x0} ${y0} ${x0 + R} ${y0}H${x0 + L}M${x1 - L} ${y0}H${x1 - R}Q${x1} ${y0} ${x1} ${y0 + R}V${y0 + L}M${x1} ${y1 - L}V${y1 - R}Q${x1} ${y1} ${x1 - R} ${y1}H${x1 - L}M${x0 + L} ${y1}H${x0 + R}Q${x0} ${y1} ${x0} ${y1 - R}V${y1 - L}"/>`);
-
-  // verified chip
-  const vt = text("verified", fonts.mono500, 13, 0, 0);
-  const cw = 30 + vt.w + 16, chx = cx - cw / 2, chy = y1 - 16;
-  const label = text("verified", fonts.mono500, 13, chx + 30, chy + 4.5);
-  body.push(`<g>${appear(3.4, 0.4)}<g>${rise(3.4, 0.5, 8)}<rect x="${f(chx)}" y="${chy - 14}" width="${f(cw)}" height="28" rx="14" fill="${t.bg}" stroke="${t.accent}" stroke-width="1.5"/><path d="M${f(chx + 11)} ${chy}l4 4l7-8" stroke="${t.accent}" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>${label.el(t.accent)}</g></g>`);
+  body.push(`<circle cx="${f(sx + 7)}" cy="${sY - 7}" r="5.5" fill="${t.accent}"/><circle cx="${f(sx + 7)}" cy="${sY - 7}" r="5" fill="none" stroke="${t.accent}" stroke-width="2"><animate attributeName="r" values="5;15" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values=".8;0" dur="2s" repeatCount="indefinite"/></circle>`);
+  const open = text("Open to work", fonts.sans600, 20, sx + 26, sY);
+  const where = text(whereS, fonts.mono400, 16, sx + 26 + openW + 20, sY);
+  const site = text("shakaib.vercel.app", fonts.mono500, 16, where.x + whereW + 30, sY);
+  body.push(open.el(t.text) + where.el(t.dim));
+  body.push(`<rect x="${f(where.x + whereW + 14)}" y="${sY - 14}" width="1.5" height="17" fill="${t.faint}"/>${site.el(t.text)}</g>`);
 
   body.push(`<rect x=".75" y=".75" width="${W - 1.5}" height="${H - 1.5}" rx="23.5" fill="none" stroke="${t.border}" stroke-width="1.5"/>`);
 
@@ -139,40 +106,19 @@ function header(t) {
     `<defs>${defs.join("")}</defs><g clip-path="url(#card)">${body.join("")}</g>`);
 }
 
-function card(c, t) {
-  const W = 520, H = 232, P = 22;
-  const out = [];
-  out.push(`<rect x=".75" y=".75" width="${W - 1.5}" height="${H - 1.5}" rx="18" fill="${t.panel}" stroke="${t.border}" stroke-width="1.5"/>`);
-  out.push(`<rect x="${P}" y="${P}" width="46" height="46" rx="12" fill="${t.accent}" fill-opacity="${t.soft}"/>`);
-  out.push(`<g transform="translate(${P} ${P})" fill="none" stroke="${t.accent}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">${icons[c.icon]}</g>`);
-  const title = text(c.name, fonts.sans700, 23, P + 62, P + 21);
-  out.push(`${title.el(t.text)}`);
-  out.push(`${text(c.sub, fonts.mono400, 13, P + 62, P + 42).el(t.dim)}`);
+// Project logos for the README tables: navy tile, green line icon. Like the buttons,
+// one version works on both GitHub themes.
+const projectIcons = {
+  attendify: "fingerprint", nexalm: "chip", tryon: "hanger", "linkedin-job-agent": "briefcase",
+  "n8n-client-hunt": "nodes", "face-liveness-detection": "facescan", ferry: "ferry",
+  xaibridge: "server", sandstorms: "wave", govava: "search", invento: "boxes",
+};
 
-  // tag chip, top right
-  const tg = text(c.tag, fonts.mono500, 11, 0, 0, { ls: 1.4 });
-  const live = c.tag === "LIVE" || c.tag === "NOW";
-  const tw = tg.w + 22 + (live ? 14 : 0), tx = W - P - tw;
-  out.push(`<rect x="${f(tx)}" y="${P}" width="${f(tw)}" height="24" rx="12" fill="${t.accent}" fill-opacity="${t.soft}" stroke="${t.accent}" stroke-opacity=".35"/>`);
-  if (live) out.push(`<circle cx="${f(tx + 14)}" cy="${P + 12}" r="3.5" fill="${t.accent}"><animate attributeName="opacity" values="1;.25;1" dur="2s" repeatCount="indefinite"/></circle>`);
-  out.push(`${text(c.tag, fonts.mono500, 11, tx + 11 + (live ? 14 : 0), P + 16, { ls: 1.4 }).el(t.accent)}`);
-
-  // description, up to three lines
-  const lines = wrap(c.desc, fonts.sans500, 16, W - 2 * P);
-  if (lines.length > 3) throw new Error(`card "${c.name}": description needs ${lines.length} lines, max 3`);
-  lines.forEach((ln, i) => out.push(`${text(ln, fonts.sans500, 16, P, 110 + i * 23).el(t.muted)}`));
-
-  // tech chips along the bottom
-  let x = P;
-  const y = H - P - 24;
-  for (const chip of c.chips) {
-    const cw = measure(chip, fonts.mono400, 12) + 18;
-    if (x + cw > W - P) break;
-    out.push(`<rect x="${f(x)}" y="${y}" width="${f(cw)}" height="24" rx="7" fill="none" stroke="${t.border}" stroke-width="1.2"/>`);
-    out.push(`${text(chip, fonts.mono400, 12, x + 9, y + 16).el(t.dim)}`);
-    x += cw + 7;
-  }
-  return svg(W, H, `${c.name}: ${c.desc}`, out.join(""));
+function iconTile(name, icon) {
+  const S = 64;
+  return svg(S, S, name,
+    `<rect x=".75" y=".75" width="${S - 1.5}" height="${S - 1.5}" rx="16" fill="#0B1220" stroke="#2A3A50" stroke-width="1.5"/>` +
+    `<g transform="scale(${f(S / 46)})" fill="none" stroke="#34D399" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">${icons[icon]}</g>`);
 }
 
 const pillIcons = {
@@ -226,8 +172,8 @@ function stackCard(t) {
 for (const t of Object.values(themes)) {
   write(`assets/header-${t.name}.svg`, header(t));
   write(`assets/stack-${t.name}.svg`, stackCard(t));
-  for (const c of cards) write(`assets/cards/${c.slug}-${t.name}.svg`, card(c, t));
 }
 const pills = { portfolio: ["Portfolio", "globe"], linkedin: ["LinkedIn", "linkedin"], email: ["Email me", "mail"], live: ["Live site", "live"], source: ["Source code", "code"] };
 for (const [k, [label, icon]] of Object.entries(pills)) write(`assets/buttons/${k}.svg`, pill(label, icon));
-console.log("built header, stack,", cards.length, "cards x 2 themes,", Object.keys(pills).length, "buttons");
+for (const [slug, icon] of Object.entries(projectIcons)) write(`assets/icons/${slug}.svg`, iconTile(slug, icon));
+console.log("built header and stack x 2 themes,", Object.keys(projectIcons).length, "icons,", Object.keys(pills).length, "buttons");

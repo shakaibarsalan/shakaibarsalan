@@ -11,67 +11,45 @@
   <a href="mailto:shakaibarsalan6553@gmail.com"><img src="assets/buttons/email.svg" height="40" alt="Email me"></a>
 </p>
 
-I build the AI part and the product around it: auth, billing, multi-tenancy, deployment, and what happens on its worst day. Right now I'm a Full-Stack & Cloud Engineer at Xaibridge in Lahore. I'm open to AI engineer and full-stack roles in Lahore, Islamabad or remote, and to freelance projects.
+I build the AI part and the product around it: auth, billing, multi-tenancy and deployment. I'm a Full-Stack & Cloud Engineer at Xaibridge in Lahore, open to AI engineer and full-stack roles in Lahore, Islamabad or remote, and to freelance projects.
 
 ### Featured: Attendify
 
-<img align="right" width="290" src="assets/featured/attendify.webp" alt="Hand-drawn animation: a phone is sketched, fingerprint ridges appear on its screen, then face match, liveness check, rotating QR code and GPS geofence are ticked off.">
+<img align="right" width="230" src="assets/featured/attendify.webp" alt="Hand-drawn animation: a phone is sketched, fingerprint ridges appear on its screen, then face match, liveness check, rotating QR code and GPS geofence are ticked off.">
 
-**Attendance that can't be faked.** A student holds a fingertip up to an ordinary phone camera. The app pulls the ridges out of that photo and matches them, so nobody has to buy a fingerprint scanner. The face is matched from the same camera.
-
-- a liveness check with random challenges, so a photo or a replayed video doesn't pass
-- a QR code on the classroom screen that changes every few seconds
-- a GPS geofence that checks the student is near the room
-- separate, isolated data for every institution
-
-I built it alone as my final-year project, and it kept running after the grade was in.
+**Attendance that can't be faked.** A phone camera reads the student's fingerprint and face, so there's no scanner to buy. A liveness check, a rotating QR code and a GPS fence stop proxy attendance. I built it alone, and it's live.
 
 <a href="https://attendify.pro"><img src="assets/buttons/live.svg" height="38" alt="Live site"></a>
 <a href="https://github.com/shakaibarsalan/attendify-pro"><img src="assets/buttons/source.svg" height="38" alt="Source code"></a>
-
-<sub>React · TypeScript · Node.js · Express · FastAPI · InsightFace · MediaPipe · OpenCV · PostgreSQL</sub>
 
 <br clear="right">
 
 ### Open source
 
-<p>
-<a href="https://github.com/shakaibarsalan/nexalm"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/cards/nexalm-dark.svg"><img src="assets/cards/nexalm-light.svg" width="49%" alt="NexaLM: self-hosted multi-model LLM and image platform that runs on free Kaggle and Colab GPUs, with streaming chat and live metrics."></picture></a>
-<a href="https://github.com/shakaibarsalan/tryon"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/cards/tryon-dark.svg"><img src="assets/cards/tryon-light.svg" width="49%" alt="Try-On: AI virtual try-on. A Chrome extension side panel talks to a Cloudflare Worker API where the try-on model provider can be swapped."></picture></a>
-</p>
+| | Project | What it does |
+|:-:|:--|:--|
+| <img src="assets/icons/nexalm.svg" width="36" alt=""> | **[NexaLM](https://github.com/shakaibarsalan/nexalm)** · [demo](https://nexalm.vercel.app) | Runs many LLMs on free Colab and Kaggle GPUs |
+| <img src="assets/icons/tryon.svg" width="36" alt=""> | **[Try-On](https://github.com/shakaibarsalan/tryon)** · [demo](https://tryonlab.vercel.app) | AI virtual try-on in a Chrome extension |
+| <img src="assets/icons/linkedin-job-agent.svg" width="36" alt=""> | **[LinkedIn Job Agent](https://github.com/shakaibarsalan/linkedin-job-agent)** | Scores jobs and fact-checks its cover letters against your CV |
+| <img src="assets/icons/n8n-client-hunt.svg" width="36" alt=""> | **[n8n Client Hunt](https://github.com/shakaibarsalan/n8n-client-hunt)** | Finds local businesses with no website and drafts outreach |
+| <img src="assets/icons/face-liveness-detection.svg" width="36" alt=""> | **[Face Liveness](https://github.com/shakaibarsalan/face-liveness-detection)** | Stops photo and video spoofing with random face challenges |
+| <img src="assets/icons/ferry.svg" width="36" alt=""> | **[Ferry](https://github.com/ahkamboh/ferry)** | Moves Claude Code chats between accounts. I built the Windows port |
 
-<p>
-<a href="https://github.com/shakaibarsalan/linkedin-job-agent"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/cards/linkedin-job-agent-dark.svg"><img src="assets/cards/linkedin-job-agent-light.svg" width="49%" alt="LinkedIn Job Agent: scores job posts against your CV, drafts cover letters, then fact-checks every claim against the CV with plain code."></picture></a>
-<a href="https://github.com/shakaibarsalan/n8n-client-hunt"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/cards/n8n-client-hunt-dark.svg"><img src="assets/cards/n8n-client-hunt-light.svg" width="49%" alt="n8n Client Hunt: finds small businesses that trade but have no website, proves the gap with open map data, scores them and drafts a first message."></picture></a>
-</p>
+### Built at work
 
-<p>
-<a href="https://github.com/shakaibarsalan/face-liveness-detection"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/cards/face-liveness-detection-dark.svg"><img src="assets/cards/face-liveness-detection-light.svg" width="49%" alt="Face Liveness: checks that the face on camera is a live person by asking for random blinks, turns and nods and verifying each from face landmarks."></picture></a>
-<a href="https://github.com/ahkamboh/ferry"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/cards/ferry-dark.svg"><img src="assets/cards/ferry-light.svg" width="49%" alt="Ferry: copy or move a chat between Claude Code accounts with its context intact. I built the Windows port."></picture></a>
-</p>
-
-Try the demos in your browser: [nexalm.vercel.app](https://nexalm.vercel.app) and [tryonlab.vercel.app](https://tryonlab.vercel.app).
-
-### Built at work, still live
-
-<p>
-<a href="https://www.linkedin.com/in/shakaib-arsalan"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/cards/xaibridge-dark.svg"><img src="assets/cards/xaibridge-light.svg" width="49%" alt="Xaibridge, Full-Stack and Cloud Engineer, now: cut database reads 98%, moved about 450k emails a month to Amazon SES (projected 80%+ cheaper) and took the tests from zero to about 3,000."></picture></a>
-<a href="https://sandstorms.ai"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/cards/sandstorms-dark.svg"><img src="assets/cards/sandstorms-light.svg" width="49%" alt="Sandstorms AI: voice agents that answer and place real phone calls, with streaming speech-to-text, LLM and text-to-speech, barge-in and sub-second first audio."></picture></a>
-</p>
-
-<p>
-<a href="https://govava.com"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/cards/govava-dark.svg"><img src="assets/cards/govava-light.svg" width="49%" alt="Govava: RAG product search on AWS Bedrock over tens of millions of scraped product records."></picture></a>
-<a href="https://inventobase.com"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/cards/invento-dark.svg"><img src="assets/cards/invento-light.svg" width="49%" alt="Invento: multi-tenant inventory SaaS that replaces spreadsheet stock tracking, with isolated tenant data, six roles and self-service onboarding."></picture></a>
-</p>
-
-<sub>Sandstorms AI and Govava were built at FourDevs.ai, and Invento at Hello Future Technologies. Their code belongs to those companies, so it isn't here.</sub>
+| | Product | What I did |
+|:-:|:--|:--|
+| <img src="assets/icons/xaibridge.svg" width="36" alt=""> | **Xaibridge**<br><sub>Full-Stack & Cloud Engineer, now</sub> | Cut database reads 98% and moved ~450k emails a month to Amazon SES |
+| <img src="assets/icons/sandstorms.svg" width="36" alt=""> | **[Sandstorms AI](https://sandstorms.ai)**<br><sub>FourDevs.ai</sub> | Voice agents that answer and place real phone calls |
+| <img src="assets/icons/govava.svg" width="36" alt=""> | **[Govava](https://govava.com)**<br><sub>FourDevs.ai</sub> | RAG search over tens of millions of products on AWS Bedrock |
+| <img src="assets/icons/invento.svg" width="36" alt=""> | **[Invento](https://inventobase.com)**<br><sub>Hello Future Technologies</sub> | Multi-tenant inventory SaaS, built solo |
 
 ### Smaller projects
 
-- **[audio-transcription-tool](https://github.com/shakaibarsalan/audio-transcription-tool)**: local Whisper transcription with an NLP quality check for creators
+- **[audio-transcription-tool](https://github.com/shakaibarsalan/audio-transcription-tool)**: local Whisper transcription with an NLP quality check
 - **[UAVDT-Dataset-Training](https://github.com/shakaibarsalan/UAVDT-Dataset-Training)**: Faster R-CNN vehicle detection on drone footage
-- **[Urdu-Text-Generation](https://github.com/shakaibarsalan/Urdu-Text-Generation)**: character- and word-level Urdu language models, LSTM vs GRU vs RNN
-- **[Elevvo_ML-Internship](https://github.com/shakaibarsalan/Elevvo_ML-Internship)**: regression, clustering, imbalanced classification and a recommender
+- **[Urdu-Text-Generation](https://github.com/shakaibarsalan/Urdu-Text-Generation)**: Urdu language models, LSTM vs GRU vs RNN
+- **[Elevvo_ML-Internship](https://github.com/shakaibarsalan/Elevvo_ML-Internship)**: regression, clustering, classification and a recommender
 
 ### Stack
 
