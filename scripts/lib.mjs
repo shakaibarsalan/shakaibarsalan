@@ -122,4 +122,8 @@ export const icons = {
   boxes: `<rect x="11.5" y="23.5" width="10" height="10" rx="1.5"/><rect x="24.5" y="23.5" width="10" height="10" rx="1.5"/><rect x="18" y="12" width="10" height="10" rx="1.5"/>`,
   search: `<circle cx="21" cy="21" r="7.5"/><path d="M26.5 26.5l7 7"/>`,
   server: `<rect x="12" y="12" width="22" height="9" rx="2.5"/><rect x="12" y="25" width="22" height="9" rx="2.5"/><path d="M16.5 16.5h.01M16.5 29.5h.01M21 16.5h8M21 29.5h8"/>`,
+  mic: `<rect x="18" y="10" width="10" height="17" rx="5"/><path d="M13 23a10 10 0 0 0 20 0M23 33v3.5M18.5 36.5h9"/>`,
+  drone: `<rect x="19" y="19" width="8" height="8" rx="2"/><path d="M19 19l-4-4M27 19l4-4M19 27l-4 4M27 27l4 4"/><circle cx="13" cy="13" r="3.5"/><circle cx="33" cy="13" r="3.5"/><circle cx="13" cy="33" r="3.5"/><circle cx="33" cy="33" r="3.5"/>`,
+  rtl: `<path d="M34 15H16M34 21H12M34 27H19M34 33H14"/>`,
+  chart: `<path d="M12 34h22"/><rect x="14" y="23" width="4.5" height="11" rx="1"/><rect x="21" y="15" width="4.5" height="19" rx="1"/><rect x="28" y="26" width="4.5" height="8" rx="1"/>`,
 };

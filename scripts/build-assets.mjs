@@ -112,7 +112,26 @@ const projectIcons = {
   attendify: "fingerprint", nexalm: "chip", tryon: "hanger", "linkedin-job-agent": "briefcase",
   "n8n-client-hunt": "nodes", "face-liveness-detection": "facescan", ferry: "ferry",
   xaibridge: "server", sandstorms: "wave", govava: "search", invento: "boxes",
+  "audio-transcription-tool": "mic", "uavdt-dataset-training": "drone", "urdu-text-generation": "rtl",
+  "elevvo-ml-internship": "chart",
 };
+
+// Status badges for the right-hand column of the projects table. LIVE and NOW pulse.
+const badges = {
+  "live-demo": "LIVE DEMO", live: "LIVE", now: "NOW", "open-source": "OPEN SOURCE",
+  contributor: "CONTRIBUTOR", notebook: "NOTEBOOK", app: "APP",
+};
+
+function badge(label) {
+  const H = 26, pulse = label === "LIVE" || label === "LIVE DEMO" || label === "NOW";
+  const t = text(label, fonts.mono500, 11.5, 0, 0, { ls: 1.3 });
+  const W = Math.round(t.w + 26 + (pulse ? 14 : 0));
+  const tx = 13 + (pulse ? 14 : 0);
+  return svg(W, H, label,
+    `<rect x=".75" y=".75" width="${W - 1.5}" height="${H - 1.5}" rx="${H / 2 - 0.75}" fill="#0B1220" stroke="#2A3A50" stroke-width="1.5"/>` +
+    (pulse ? `<circle cx="16" cy="13" r="3.5" fill="#34D399"><animate attributeName="opacity" values="1;.3;1" dur="2s" repeatCount="indefinite"/></circle>` : "") +
+    text(label, fonts.mono500, 11.5, tx, 17.2, { ls: 1.3 }).el("#34D399"));
+}
 
 function iconTile(name, icon) {
   const S = 64;
@@ -176,4 +195,5 @@ for (const t of Object.values(themes)) {
 const pills = { portfolio: ["Portfolio", "globe"], linkedin: ["LinkedIn", "linkedin"], email: ["Email me", "mail"], live: ["Live site", "live"], source: ["Source code", "code"] };
 for (const [k, [label, icon]] of Object.entries(pills)) write(`assets/buttons/${k}.svg`, pill(label, icon));
 for (const [slug, icon] of Object.entries(projectIcons)) write(`assets/icons/${slug}.svg`, iconTile(slug, icon));
+for (const [k, label] of Object.entries(badges)) write(`assets/badges/${k}.svg`, badge(label));
 console.log("built header and stack x 2 themes,", Object.keys(projectIcons).length, "icons,", Object.keys(pills).length, "buttons");
