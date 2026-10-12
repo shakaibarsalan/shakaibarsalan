@@ -65,7 +65,7 @@ I build the AI part and the product around it: auth, billing, multi-tenancy and 
 </tr>
 <tr>
 <td align="center" width="56"><img src="assets/icons/ferry.svg" width="40" alt=""></td>
-<td width="210"><a href="https://github.com/ahkamboh/ferry"><b>Ferry</b></a><br><sub>Rust · Windows port</sub></td>
+<td width="210"><a href="https://github.com/ahkamboh/ferry"><b>Ferry</b></a><br><sub>Rust · Windows</sub></td>
 <td>Moves Claude Code chats between accounts. I built the Windows port</td>
 <td align="right"><a href="https://github.com/ahkamboh/ferry"><img src="assets/badges/contributor.svg" height="24" alt="Contributor"></a></td>
 </tr>
