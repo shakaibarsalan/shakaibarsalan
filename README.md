@@ -18,7 +18,7 @@ I build the AI part and the product around it: auth, billing, multi-tenancy and 
 <table>
 <tr>
 <td>
-<b>Attendance that can't be faked.</b> A phone camera reads the student's fingerprint and face, so there's no scanner to buy. A liveness check, a rotating QR code and a GPS fence stop proxy attendance. I built it alone, and it's live.
+<b>Attendance that can't be faked.</b> A phone camera reads the student's fingerprint and face, so there's no scanner to buy. A liveness check, a rotating QR code and a GPS fence stop proxy attendance. It's live.
 <br><br>
 <a href="https://attendify.pro"><img src="assets/buttons/live.svg" height="38" alt="Live site"></a>
 <a href="https://github.com/shakaibarsalan/attendify-pro"><img src="assets/buttons/source.svg" height="38" alt="Source code"></a>
@@ -91,7 +91,7 @@ I build the AI part and the product around it: auth, billing, multi-tenancy and 
 <tr>
 <td align="center" width="56"><img src="assets/icons/invento.svg" width="40" alt=""></td>
 <td width="210"><a href="https://inventobase.com"><b>Invento</b></a><br><sub>at Hello Future Technologies</sub></td>
-<td>Multi-tenant inventory SaaS, built solo</td>
+<td>Multi-tenant inventory SaaS, built end to end</td>
 <td align="right"><a href="https://inventobase.com"><img src="assets/badges/live.svg" height="24" alt="Live"></a></td>
 </tr>
 <tr><th colspan="4" align="left">Smaller projects</th></tr>
