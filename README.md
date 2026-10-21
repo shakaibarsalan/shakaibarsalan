@@ -34,6 +34,12 @@ I build the AI part and the product around it: auth, billing, multi-tenancy and 
 <table>
 <tr><th colspan="4" align="left">Open source</th></tr>
 <tr>
+<td align="center" width="56"><img src="assets/icons/budsbridge.svg" width="40" alt=""></td>
+<td width="210"><a href="https://github.com/shakaibarsalan/BudsBridge"><b>BudsBridge</b></a><br><sub>Rust · Tauri · React</sub></td>
+<td>Hear your phone and laptop in the same Bluetooth buds</td>
+<td align="right"><a href="https://github.com/shakaibarsalan/BudsBridge/releases/latest"><img src="assets/badges/app.svg" height="24" alt="App"></a></td>
+</tr>
+<tr>
 <td align="center" width="56"><img src="assets/icons/nexalm.svg" width="40" alt=""></td>
 <td width="210"><a href="https://github.com/shakaibarsalan/nexalm"><b>NexaLM</b></a><br><sub>React · Fastify · Python</sub></td>
 <td>Runs many LLMs on free Colab and Kaggle GPUs</td>

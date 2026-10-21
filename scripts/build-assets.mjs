@@ -110,7 +110,7 @@ function header(t) {
 // one version works on both GitHub themes.
 const projectIcons = {
   attendify: "fingerprint", nexalm: "chip", tryon: "hanger", "linkedin-job-agent": "briefcase",
-  "n8n-client-hunt": "nodes", "face-liveness-detection": "facescan", ferry: "ferry",
+  "n8n-client-hunt": "nodes", "face-liveness-detection": "facescan", ferry: "ferry", budsbridge: "buds",
   xaibridge: "server", sandstorms: "wave", govava: "search", invento: "boxes",
   "audio-transcription-tool": "mic", "uavdt-dataset-training": "drone", "urdu-text-generation": "rtl",
   "elevvo-ml-internship": "chart",

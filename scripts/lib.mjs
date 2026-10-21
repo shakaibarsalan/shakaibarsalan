@@ -118,6 +118,7 @@ export const icons = {
   nodes: `<circle cx="14" cy="23" r="3.2"/><circle cx="32" cy="14" r="3.2"/><circle cx="32" cy="32" r="3.2"/><path d="M17 21.5l12-6M17 24.5l12 6M32 17.2v11.6"/>`,
   facescan: `<path d="M12 18v-3a3 3 0 0 1 3-3h3M28 12h3a3 3 0 0 1 3 3v3M34 28v3a3 3 0 0 1-3 3h-3M18 34h-3a3 3 0 0 1-3-3v-3"/><path d="M19 20.5v1.5M27 20.5v1.5M18.5 27c2.6 2.6 6.4 2.6 9 0"/>`,
   ferry: `<circle cx="15" cy="31" r="4"/><circle cx="31" cy="15" r="4"/><path d="M18 28l10-10"/>`,
+  buds: `<path d="M12.5 25.5a10.5 10.5 0 0 1 21 0"/><circle cx="13" cy="28" r="4"/><circle cx="33" cy="28" r="4"/>`,
   wave: `<path d="M11 21v4M15 17v12M19 13v20M23 19v8M27 15v16M31 18v10M35 21v4"/>`,
   boxes: `<rect x="11.5" y="23.5" width="10" height="10" rx="1.5"/><rect x="24.5" y="23.5" width="10" height="10" rx="1.5"/><rect x="18" y="12" width="10" height="10" rx="1.5"/>`,
   search: `<circle cx="21" cy="21" r="7.5"/><path d="M26.5 26.5l7 7"/>`,
