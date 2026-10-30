@@ -8,7 +8,7 @@
 <p align="center">
   <a href="https://shakaib.vercel.app"><img src="assets/buttons/portfolio.svg" height="40" alt="Portfolio"></a>
   <a href="https://www.linkedin.com/in/shakaib-arsalan"><img src="assets/buttons/linkedin.svg" height="40" alt="LinkedIn"></a>
-  <a href="mailto:shakaibarsalan6553@gmail.com"><img src="assets/buttons/email.svg" height="40" alt="Email me"></a>
+  <a href="mailto:shakaibatwork@gmail.com"><img src="assets/buttons/email.svg" height="40" alt="Email me"></a>
 </p>
 
 I build the AI part and the product around it: auth, billing, multi-tenancy and deployment. I'm a Full-Stack & Cloud Engineer at Xaibridge in Lahore, open to AI engineer and full-stack roles in Lahore, Islamabad or remote, and to freelance projects.
