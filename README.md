@@ -34,6 +34,12 @@ I build the AI part and the product around it: auth, billing, multi-tenancy and 
 <table>
 <tr><th colspan="4" align="left">Open source</th></tr>
 <tr>
+<td align="center" width="56"><img src="assets/icons/tether.svg" width="40" alt=""></td>
+<td width="210"><a href="https://github.com/shakaibarsalan/tether"><b>Tether</b></a><br><sub>PowerShell · Python · MCP</sub></td>
+<td>Stops other computers on your Claude account from driving your Chrome</td>
+<td align="right"><a href="https://github.com/shakaibarsalan/tether"><img src="assets/badges/open-source.svg" height="24" alt="Open source"></a></td>
+</tr>
+<tr>
 <td align="center" width="56"><img src="assets/icons/budsbridge.svg" width="40" alt=""></td>
 <td width="210"><a href="https://github.com/shakaibarsalan/BudsBridge"><b>BudsBridge</b></a><br><sub>Rust · Tauri · React</sub></td>
 <td>Hear your phone and laptop in the same Bluetooth buds</td>
